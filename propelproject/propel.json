@@ -1,0 +1,24 @@
+{
+  "propel": {
+    "database": {
+      "connections": {
+        "bookstore": {
+          "adapter": "mysql",
+          "classname": "Propel\\Runtime\\Connection\\ConnectionWrapper",
+          "dsn": "mysql:host=localhost;dbname=piggy_assessment",
+          "user": "root",
+          "password": "tyranids",
+          "attributes": []
+        }
+      }
+    },
+    "runtime": {
+      "defaultConnection": "bookstore",
+      "connections": ["bookstore"]
+    },
+    "generator": {
+      "defaultConnection": "bookstore",
+      "connections": ["bookstore"]
+    }
+  }
+}

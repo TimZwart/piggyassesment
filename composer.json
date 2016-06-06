@@ -1,0 +1,12 @@
+{
+  "name": "Piggy Assessment Backend",
+  "require": {
+    "propel/propel": "~2.0@dev"
+  },
+  "autoload": {
+    "classmap": ["propelproject/generated-classes/"]
+  },
+  "config": {
+    "vendor-dir": "vendor/"
+  }
+}

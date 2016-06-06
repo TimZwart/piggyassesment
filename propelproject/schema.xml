@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="bookstore" defaultIdMethod="native">
+
+    <table name="books" phpName="Book">
+
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="title" type="varchar" size="255" required="true" />
+        <column name="description" type="longvarchar" required="true" />
+        <column name="isbn" type="varchar" size="24" required="true" />
+        <column name="author_id" type="integer" required="true"/>
+        <column name="highlighted" type="boolean" default="false" />
+
+        <foreign-key foreignTable="authors">
+            <reference local="author_id" foreign="id"/>
+        </foreign-key>
+
+    </table>
+
+    <table name="authors" phpName="Author">
+
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+        <column name="first_name" type="varchar" size="128" required="true"/>
+        <column name="last_name" type="varchar" size="128" required="true"/>
+
+    </table>
+
+    <table name="publishers" phpName="Publisher">
+
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="varchar" size="128" required="true" />
+
+    </table>
+
+    <table name="book_publishers" phpName="BookPublisher" isCrossRef="true">
+
+        <column name="book_id" type="integer" required="true" primaryKey="true" />
+        <column name="publisher_id" type="integer" required="true" primaryKey="true" />
+
+        <foreign-key foreignTable="books" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="book_id" foreign="id" />
+        </foreign-key>
+
+        <foreign-key foreignTable="publishers" onDelete="CASCADE" onUpdate="CASCADE">
+            <reference local="publisher_id" foreign="id" />
+        </foreign-key>
+
+    </table>
+
+</database>
